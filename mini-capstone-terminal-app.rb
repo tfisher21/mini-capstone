@@ -21,4 +21,16 @@ products.each do |product|
   cities_prompt << product[0]
 end
 
-city = prompt.select("Please select a city to see more information.", cities_prompt)
+city_prompt = prompt.select("Please select a city to see more information.", cities_prompt)
+
+
+city = ""
+response.each do |x|
+  if x["name"] == city_prompt
+    city = x
+  end
+end
+
+city.each_key do |k|
+  puts "#{k}: #{city[k]}"
+end
