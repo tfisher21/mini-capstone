@@ -25,4 +25,20 @@ class Api::ProductsController < ApplicationController
 
     render "show.json.jbuilder"
   end
+
+  def update
+    @product = Product.find_by(id: params[:id])
+
+    @product.name = params["name"] || @product.name
+    @product.price = params["price"] || @product.price
+    @product.image_url = params["image_url"] || @product.image_url
+    @product.description = params["description"] || @product.description
+    @product.population = params["population"] || @product.population
+    @product.country = params["country"] || @product.country
+    @product.language = params["language"] || @product.language
+
+    @product.save
+
+    render "show.json.jbuilder"
+  end
 end
