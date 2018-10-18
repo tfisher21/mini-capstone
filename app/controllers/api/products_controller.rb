@@ -12,7 +12,8 @@ class Api::ProductsController < ApplicationController
       description: params["description"],
       population: params["population"],
       country: params["country"],
-      language: params["language"]
+      language: params["language"],
+      stock: params["stock"]
       )
 
     @product.save
@@ -36,6 +37,7 @@ class Api::ProductsController < ApplicationController
     @product.population = params["population"] || @product.population
     @product.country = params["country"] || @product.country
     @product.language = params["language"] || @product.language
+    @product.stock = params["stock"] || @product.stock
 
     @product.save
 
