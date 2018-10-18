@@ -1,3 +1,3 @@
 json.array! @products.each do |product|
-  json.partial! "city", product: product
+  json.partial! "product", product: product
 end

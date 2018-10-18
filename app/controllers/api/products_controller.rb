@@ -6,7 +6,7 @@ class Api::ProductsController < ApplicationController
 
   def create
     @product = Product.new(
-      name: params["name"],
+      city_name: params["city_name"],
       price: params["price"],
       image_url: params["image_url"],
       description: params["description"],
@@ -29,7 +29,7 @@ class Api::ProductsController < ApplicationController
   def update
     @product = Product.find_by(id: params[:id])
 
-    @product.name = params["name"] || @product.name
+    @product.city_name = params["city_name"] || @product.city_name
     @product.price = params["price"] || @product.price
     @product.image_url = params["image_url"] || @product.image_url
     @product.description = params["description"] || @product.description
