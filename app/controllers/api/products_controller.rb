@@ -1,6 +1,17 @@
 class Api::ProductsController < ApplicationController
   def index
     @products = Product.all
+
+    if params["search"]
+      @products = @products.where("city_name ILIKE ?", "%#{params["search"]}%")
+    end
+
+    if params["price_sort"]
+      @products = @products.order(price: :asc)  # Set to ascend to confirm change
+    else
+      @products = @products.order(:id)
+    end
+
     render "index.json.jbuilder"
   end
 
