@@ -27,9 +27,11 @@ class Api::ProductsController < ApplicationController
       stock: params["stock"]
       )
 
-    @product.save
-
-    render "show.json.jbuilder"
+    if @product.save
+      render "show.json.jbuilder"
+    else
+      render json: {errors: @product.errors.full_messages}, status: 406
+    end
   end
 
   def show
@@ -52,7 +54,11 @@ class Api::ProductsController < ApplicationController
 
     @product.save
 
-    render "show.json.jbuilder"
+    if @product.save
+      render "show.json.jbuilder"
+    else
+      render json: {errors: @product.errors.full_messages}, status: 406
+    end
   end
 
   def destroy
