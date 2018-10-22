@@ -7,6 +7,7 @@ json.population product.population
 json.country product.country
 json.language product.language
 json.stock product.stock
+json.supplier_id product.supplier_id
 
 json.is_discounted? product.is_discounted?
 json.tax product.tax

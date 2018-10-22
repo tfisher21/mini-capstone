@@ -24,7 +24,8 @@ class Api::ProductsController < ApplicationController
       population: params["population"],
       country: params["country"],
       language: params["language"],
-      stock: params["stock"]
+      stock: params["stock"],
+      supplier_id: params["supplier_id"]
       )
 
     if @product.save
@@ -51,6 +52,7 @@ class Api::ProductsController < ApplicationController
     @product.country = params["country"] || @product.country
     @product.language = params["language"] || @product.language
     @product.stock = params["stock"] || @product.stock
+    @product.supplier_id = params["supplier_id"] || @product.supplier_id
 
     @product.save
 
