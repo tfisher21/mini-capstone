@@ -28,6 +28,11 @@ class Api::ProductsController < ApplicationController
       )
 
     if @product.save
+      Image.create(
+        name: params["image_name"],
+        source: params["source"],
+        product_id: @product.id
+        )
       render "show.json.jbuilder"
     else
       render json: {errors: @product.errors.full_messages}, status: 406
