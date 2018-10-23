@@ -19,7 +19,6 @@ class Api::ProductsController < ApplicationController
     @product = Product.new(
       city_name: params["city_name"],
       price: params["price"],
-      image_url: params["image_url"],
       description: params["description"],
       population: params["population"],
       country: params["country"],
@@ -46,7 +45,6 @@ class Api::ProductsController < ApplicationController
 
     @product.city_name = params["city_name"] || @product.city_name
     @product.price = params["price"] || @product.price
-    @product.image_url = params["image_url"] || @product.image_url
     @product.description = params["description"] || @product.description
     @product.population = params["population"] || @product.population
     @product.country = params["country"] || @product.country
