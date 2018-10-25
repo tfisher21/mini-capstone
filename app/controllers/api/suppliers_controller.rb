@@ -2,11 +2,11 @@ class Api::SuppliersController < ApplicationController
   def index
     @suppliers = Supplier.all
 
-    if params["search"]
+    if params[:search]
       @suppliers = @suppliers.where("name ILIKE ?", "%#{params["search"]}%")
     end
 
-    if params["price_sort"]
+    if params[:price_sort]
       @suppliers = @suppliers.order(price: :asc)  # Set to ascend to confirm change
     else
       @suppliers = @suppliers.order(:id)
@@ -17,9 +17,9 @@ class Api::SuppliersController < ApplicationController
 
   def create
     @supplier = Supplier.new(
-      name: params["city_name"],
-      email: params["email"],
-      phone_number: params["phone_number"]
+      name: params[:city_name],
+      email: params[:email],
+      phone_number: params[:phone_number]
       )
 
     if @supplier.save
@@ -38,9 +38,9 @@ class Api::SuppliersController < ApplicationController
   def update
     @supplier = Supplier.find_by(id: params[:id])
 
-    @supplier.name = params["name"] || @supplier.name
-    @supplier.email = params["email"] || @supplier.email
-    @supplier.phone_number = params["phone_number"] || @supplier.phone_number
+    @supplier.name = params[:name] || @supplier.name
+    @supplier.email = params[:email] || @supplier.email
+    @supplier.phone_number = params[:phone_number] || @supplier.phone_number
 
     @supplier.save
 

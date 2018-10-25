@@ -5,12 +5,13 @@ class Product < ApplicationRecord
   validates :price, numericality: {greater_than_or_equal_to: 0}
   validates :description, length: {in: 10..500}
 
-  belongs_to :supplier
+  belongs_to :supplier # This does the same as the below commented code
   # def supplier
   #   supplier = Supplier.find_by(id: supplier_id)
   # end
 
-  has_many :images
+  has_many :orders
+  has_many :images # This does the same as the below commented code
   # def images
   #   images = Image.where(product_id: id)
   # end
