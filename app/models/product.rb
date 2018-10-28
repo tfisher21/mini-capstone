@@ -11,6 +11,9 @@ class Product < ApplicationRecord
   # end
 
   has_many :orders
+  has_many :category_products
+  has_many :categories, through: :category_products
+
   has_many :images # This does the same as the below commented code
   # def images
   #   images = Image.where(product_id: id)

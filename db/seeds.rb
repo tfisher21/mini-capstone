@@ -8,6 +8,21 @@
 #
 #   Product: name:string, price:integer, image_url:string, description:string, population:integer, country:string, language:string
 
+User.create([
+  {
+    name: "Tyler",
+    email: "tyler@example.com",
+    password: "password",
+    password_confirmation: "password",
+  },
+  {
+    name: "Lesley",
+    email: "lesley@example.com",
+    password: "password",
+    password_confirmation: "password",
+  }
+])
+
 Supplier.create([
   {
     name: "Goku",
@@ -33,7 +48,6 @@ Product.create([
     description: "The most populous city in the world.",
     population: 13513734,
     country: "Japan",
-    language: "Japanese",
     stock: true,
     supplier_id: 3
   },
@@ -43,19 +57,8 @@ Product.create([
     description: "The name of the city honors the Apostle, Saint Paul of Tarsus.",
     population: 12038175,
     country: "Brazil",
-    language: "Portuguese",
     stock: false,
     supplier_id: 1
-  },
-  {
-    city_name: "Jakarta",
-    price: 899,
-    description: "It was the de facto capital of the Dutch East Indies.",
-    population: 10075310,
-    country: "Indonesia",
-    language: "Javanese",
-    stock: true,
-    supplier_id: 2
   },
   {
     city_name: "Seoul",
@@ -63,19 +66,26 @@ Product.create([
     description: "Strategically situated on the Han River, Seoul's history stretches back over two thousand years, when it was founded in 18 BC by the people of Baekje, one of the Three Kingdoms of Korea.",
     population: 10197604,
     country: "South Korea",
-    language: "Korean",
     stock: true,
     supplier_id: 2
   },
   {
-    city_name: "Manila",
-    price: 801,
-    description: "The Spanish city of Manila was founded on June 24, 1571, by Spanish conquistador Miguel López de Legazpi. The date is regarded as the city's official founding date.",
-    population: 1780148,
-    country: "Phillipines",
-    language: "Filipino",
-    stock: false,
-    supplier_id: 1
+    city_name: "Houston",
+    price: 750,
+    description: "In the mid-20th century, Houston's economy diversified as it became home to the Texas Medical Center—the world's largest concentration of healthcare and research institutions—and NASA's Johnson Space Center, where the Mission Control Center is located.",
+    population: 2099451,
+    country: "United States",
+    stock: true,
+    supplier_id: 2
+  },
+  {
+    city_name: "Madrid",
+    price: 860,
+    description: "While Madrid possesses modern infrastructure, it has preserved the look and feel of many of its historic neighbourhoods and streets.",
+    population: 3141991,
+    country: "Spain",
+    stock: true,
+    supplier_id: 2
   }
 ])
 
@@ -91,23 +101,58 @@ Image.create([
     product_id: 2
   },
   {
-    name: "Jakarta Nightlife",
-    source: "jakarta.nightlife.ong",
-    product_id: 3
-  },
-  {
     name: "Seoul Skyline",
     source: "seoul_skyline.jpg",
     product_id: 4
-  },
-  {
-    name: "Manila Landmarks",
-    source: "manila_landmarks.jpg",
-    product_id: 5
   },
   {
     name: "Tokyo Rail Station",
     source: "tokyo_rail_station.png",
     product_id: 1
   }
+])
+
+Category.create([
+  {
+    language: "Japanese"
+  },
+  {
+    language: "English"
+  },
+  {
+    language: "Portuguese"
+  },
+  {
+    language: "Spanish"
+  },
+  {
+    language: "Korean"
+  }
+])
+
+CategoryProduct.create([
+  {
+    category_id: 1,
+    product_id: 1
+  },
+  {
+    category_id: 2,
+    product_id: 4
+  },
+  {
+    category_id: 3,
+    product_id: 2
+  },
+  {
+    category_id: 4,
+    product_id: 4
+  },
+  {
+    category_id: 4,
+    product_id: 5
+  },
+  {
+    category_id: 5,
+    product_id: 3
+  },
 ])
