@@ -4,6 +4,11 @@ class Api::ProductsController < ApplicationController
   def index
     @products = Product.all
 
+    if params[:languages]
+      category = Category.find_by("language ILIKE ?", "%#{params[:languages]}%")
+      @products = category.products
+    end
+
     if params[:search]
       @products = @products.where("city_name ILIKE ?", "%#{params["search"]}%")
     end
@@ -24,7 +29,6 @@ class Api::ProductsController < ApplicationController
       description: params[:description],
       population: params[:population],
       country: params[:country],
-      language: params[:language],
       stock: params[:stock],
       supplier_id: params[:supplier_id]
       )
@@ -55,7 +59,6 @@ class Api::ProductsController < ApplicationController
     @product.description = params[:description] || @product.description
     @product.population = params[:population] || @product.population
     @product.country = params[:country] || @product.country
-    @product.language = params[:language] || @product.language
     @product.stock = params[:stock] || @product.stock
     @product.supplier_id = params[:supplier_id] || @product.supplier_id
 

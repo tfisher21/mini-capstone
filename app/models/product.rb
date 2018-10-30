@@ -10,9 +10,11 @@ class Product < ApplicationRecord
   #   supplier = Supplier.find_by(id: supplier_id)
   # end
 
-  has_many :orders
   has_many :category_products
   has_many :categories, through: :category_products
+
+  has_many :carted_products
+  has_many :orders, through: :carted_products
 
   has_many :images # This does the same as the below commented code
   # def images
@@ -46,5 +48,9 @@ class Product < ApplicationRecord
 
   def total
     price + tax
+  end
+
+  def languages
+    categories.map { |category| category.language }
   end
 end
