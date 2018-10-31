@@ -21,11 +21,7 @@ class Api::OrdersController < ApplicationController
     @order.total = @order.calc_total
 
     if @order.save
-      carted_products.each do |carted_product|
-        carted_product.status = "purchased"
-        carted_product.order_id = @order.id
-        carted_product.save
-      end
+      @order.ordered_cart(carted_products)
       render "show.json.jbuilder"
     else
       render json: {errors: @order.errors.full_messages}

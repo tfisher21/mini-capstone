@@ -18,4 +18,11 @@ class Order < ApplicationRecord
     subtotal + tax
   end
 
+  def ordered_cart(carted_products)
+    carted_products.each do |carted_product|
+      carted_product.status = "purchased"
+      carted_product.order_id = id
+      carted_product.save
+    end
+  end
 end
