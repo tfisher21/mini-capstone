@@ -12,22 +12,13 @@ class Api::OrdersController < ApplicationController
       "carted"
     )
 
-    subtotal = 0
-
-    carted_products.each do |carted_product|
-      subtotal += carted_product.product.price * carted_product.quantity
-    end
-
-    tax = (subtotal * 0.09).round(2)
-
-    total = subtotal + tax
-
     @order = Order.new(
       user_id: current_user.id,
-      subtotal: subtotal,
-      tax: tax,
-      total: total
     )
+
+    @order.subtotal = @order.calc_subtotal(carted_products)
+    @order.tax = @order.calc_tax
+    @order.total = @order.calc_total
 
     if @order.save
       carted_products.each do |carted_product|
