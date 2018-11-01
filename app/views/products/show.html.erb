@@ -1,0 +1,11 @@
+<h1><%= @product.city_name %></h1>
+<p>Price: $<%= @product.price %></p>
+<p>Desc: <%= @product.description %></p>
+<p>Pop.: <%= @product.population %></p>
+<p>Country of Origin: <%= @product.country %></p>
+<h4>Supplier Info.</h4>
+<ul>
+  <li><strong>Name:</strong> <%= @product.supplier.name %></li>
+  <li><strong>Email:</strong> <%= @product.supplier.email %></li>
+  <li><strong>Ph.:</strong> <%= @product.supplier.phone_number %></li>
+</ul>

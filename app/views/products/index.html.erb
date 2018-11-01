@@ -1,0 +1,5 @@
+<% @products.each do |product| %>
+  <h1><%= product.city_name %></h1>
+  <h4><%= product.description %></h4>
+  <a href="/products/<%= product.id %>">More Info</a>
+<% end %>
