@@ -37,6 +37,15 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find_by(id: params[:id])
-    redirect_to "/product/#{@product.id}"
+
+    @product.city_name = params[:city_name]
+    @product.price = params[:price]
+    @product.description = params[:description]
+    @product.population = params[:population]
+    @product.country = params[:country]
+
+    @product.save
+
+    redirect_to "/products/#{@product.id}"
   end
 end

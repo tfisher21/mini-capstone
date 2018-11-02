@@ -1,6 +1,7 @@
 <h1>Edit Product</h1>
 
-<form action="/products/<%= @product.id %>" method="POST"> 
+<form action="/products/<%= @product.id %>" method="post"> 
+  <input type="hidden" name="_method" value="patch">
   <div>City Name: <input type="text" name="city_name" value="<%= @product.city_name %>"></div>
   <div>City Price: <input type="number" name="price" value="<%= @product.price %>"></div>
   <div>City Description: <textarea name="description"><%= @product.description %></textarea></div>
