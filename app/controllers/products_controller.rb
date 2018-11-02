@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
+    @products = @products.order(id: :asc)
 
     render "index.html.erb"
   end
