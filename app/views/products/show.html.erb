@@ -11,7 +11,4 @@
 </ul>
 
 <a href="/products/<%= @product.id %>/edit"><button>Edit Product</button></a>
-<form action="/products/<%= @product.id %>" method="post"> 
-  <input type="hidden" name="_method" value="delete">
-  <div><input type="submit" value="Delete Product"></div>
-</form>
+<a href="/products/<%= @product.id %>" data-method="delete"><button>Delete Product</button></a>
