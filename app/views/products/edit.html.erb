@@ -1,0 +1,11 @@
+<h1>Edit Product</h1>
+
+<form action="/products/<%= @product.id %>" method="POST"> 
+  <div>City Name: <input type="text" name="city_name" value="<%= @product.city_name %>"></div>
+  <div>City Price: <input type="number" name="price" value="<%= @product.price %>"></div>
+  <div>City Description: <textarea name="description"><%= @product.description %></textarea></div>
+  <div>City Population: <input type="number" name="population" value="<%= @product.population %>"></div>
+  <div>City Country: <input type="text" name="country" value="<%= @product.country %>"></div>
+
+  <div><input type="submit" value="Update Product"></div>
+</form>

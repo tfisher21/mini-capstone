@@ -1,1 +1,20 @@
 <h1>New Product</h1>
+
+<form action="/products" method="POST"> 
+  <div>City Name: <input type="text" name="city_name"></div>
+  <div>City Price: <input type="number" name="price"></div>
+  <div>City Description: <textarea name="description"></textarea></div>
+  <div>City Population: <input type="number" name="population"></div>
+  <div>City Country: <input type="text" name="country"></div>
+
+  <div> Supplier: 
+    <select name="supplier">
+      <% @suppliers.each do |supplier| %>
+        <option value="<%= supplier.id %>"><%= supplier.name %></option>
+      <% end %>
+    </select>
+
+  </div>
+
+  <div><input type="submit" value="Create Product"></div>
+</form>
