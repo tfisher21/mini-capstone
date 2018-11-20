@@ -8,6 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="index.js" defer></script>
+
     <title>City Transfer</title>
   </head>
   <body>
@@ -43,7 +46,7 @@
       <div class="jumbotron">
         <div class="container">
           <h1 class="display-4">Welcome to City Transfer!</h1>
-          <p class="lead">We process basic transactions for cities for sale. Dystopian? Maybe!</p>
+          <p class="lead">We provide basic transaction processing for citiy exchange. Dystopian? Maybe!</p>
           <hr class="my-4">
           <p>This website is for the 1% and you'll deal with it. Good Luck!</p>
           <a class="btn btn-info btn-lg" href="/new" role="button">Sell City</a>
@@ -52,51 +55,8 @@
     </div>
 
     <div class="container">
-      <div class="row justify-content-between">
-        <div class="col-4 my-1">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://images.unsplash.com/photo-1519056894482-50b7093ce330?ixlib=rb-0.3.5&s=22e262380d240eeca8d639ae4131db25&auto=format&fit=crop&w=1500&q=80" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Tokyo</h5>
-              <p class="card-text">The most populous city in the world.</p>
-              <p class="card-text">Population: 13513734</p>
-              <a href="/show" class="btn btn-info">Preview this City!</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-4 my-1">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://images.unsplash.com/photo-1519056894482-50b7093ce330?ixlib=rb-0.3.5&s=22e262380d240eeca8d639ae4131db25&auto=format&fit=crop&w=1500&q=80" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Tokyo</h5>
-              <p class="card-text">The most populous city in the world.</p>
-              <p class="card-text">Population: 13513734</p>
-              <a href="/show" class="btn btn-info">Preview this City!</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-4 my-1">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://images.unsplash.com/photo-1519056894482-50b7093ce330?ixlib=rb-0.3.5&s=22e262380d240eeca8d639ae4131db25&auto=format&fit=crop&w=1500&q=80" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Tokyo</h5>
-              <p class="card-text">The most populous city in the world.</p>
-              <p class="card-text">Population: 13513734</p>
-              <a href="/show" class="btn btn-info">Preview this City!</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-4 my-1">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://images.unsplash.com/photo-1519056894482-50b7093ce330?ixlib=rb-0.3.5&s=22e262380d240eeca8d639ae4131db25&auto=format&fit=crop&w=1500&q=80" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Tokyo</h5>
-              <p class="card-text">The most populous city in the world.</p>
-              <p class="card-text">Population: 13513734</p>
-              <a href="/show" class="btn btn-info">Preview this City!</a>
-            </div>
-          </div>
-        </div>
+      <div id="city-container" class="row justify-content-between">
+        
       </div>
     </div>    
 
@@ -107,3 +67,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
 </html>
+
+<!-- Template -->
+<template id="city-card">
+  <div class="col-lg-4 my-1">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="https://images.unsplash.com/photo-1519056894482-50b7093ce330?ixlib=rb-0.3.5&s=22e262380d240eeca8d639ae4131db25&auto=format&fit=crop&w=1500&q=80" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">city_name</h5>
+        <p class="card-text card-desc">description</p>
+        <p class="card-text card-pop">population</p>
+        <a href="/show" class="btn btn-info">Preview this City!</a>
+      </div>
+    </div>
+  </div>
+</template>
